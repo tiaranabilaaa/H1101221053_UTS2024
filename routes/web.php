@@ -1,18 +1,20 @@
 <?php
 
+use App\Http\Controllers\TestingController;
+use App\Http\Controllers\GajiController;
+use App\Http\Controllers\PresensiPegawaiController;
+use App\Http\Controllers\MasterJabatanController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('testing');
 });
+
+Route::get('/', [TestingController::class, 'index']);
+
+Route::get('/gaji', [GajiController::class, 'index']);
+
+Route::get('/masterjabatan', [MasterJabatanController::class, 'index']);
+
+Route::get('/presensipegawai', [PresensiPegawaiController::class, 'index']);
